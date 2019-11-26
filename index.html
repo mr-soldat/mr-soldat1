@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="./font-awesome-4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <header>
+        <label>Дьяконов Кирилл</label>
+        <label>Ремонт квартиры</label>
+    </header>
+    <main>
+        <div class="blocks">
+
+            <div class="block">
+                <div class="task-list">
+                    <div class="block-title text-center">Нужно сделать</div>
+                    <div class="tasks">
+                        <div data-bind="template: {name:'task', foreach: tasksTODO}"></div>
+                    </div>
+                </div>
+                <div class="block-sum text-center">
+                    <span class="fa fa-money" aria-hidden="true"></span> <span data-bind="text: sumTODO"></span>
+                </div>
+            </div>
+
+            <div class="block">
+                <div class="task-list">
+                    <div class="block-title text-center">В работе</div>
+                    <div class="tasks">
+                        <div data-bind="template: {name:'task', foreach: tasksInWork}"></div>
+                    </div>
+                </div>
+                <div class="block-sum text-center">
+                    <span class="fa fa-money" aria-hidden="true"></span> <span data-bind="text: sumInWork"></span>
+                </div>
+            </div>
+
+            <div class="block">
+                <div class="task-list">
+                    <div class="block-title text-center">Закончено</div>
+                    <div class="tasks">
+                        <div data-bind="template: {name:'task', foreach: tasksComplite}"></div>
+                    </div>
+                </div>
+                <div class="block-sum text-center">
+                    <span class="fa fa-money" aria-hidden="true"></span> <span data-bind="text: sumComplite"></span>
+                </div>
+            </div>
+
+        </div>
+        <div class="edit" data-bind="with: taskEdit">
+            <div class="edit-title">
+                <label data-bind="text: name"></label>
+                <button class="btn btn-xs btn-default" data-bind="click: $root.closeEdit"><i class="fa fa-times"
+                        aria-hidden="true"></i></button>
+            </div>
+            <div class="edit-content">
+                <div class="row">
+                    <label class="col-sm-2">Задача</label>
+                    <div class="col-sm-10"><input type="text" class="form-control" data-bind="value: name, disable: status() === statusComplite"></div>
+                </div>
+                <div class="row">
+                    <label class="col-sm-2">Сумма</label>
+                    <div class="col-sm-2"><input type="text" class="form-control" data-bind="value: amount, disable: status() === statusComplite"></div>
+                </div>
+                <div class="row">
+                    <label class="col-sm-2">Порядок</label>
+                    <div class="col-sm-2"><input type="text" class="form-control" data-bind="value: order, disable: status() === statusComplite"></div>
+                </div>
+            </div>
+            <div class="btns">
+                <button class="btn btn-default" data-bind="visible: status() === statusInWork, click: toTODO">Нужно
+                    сделать</button>
+                <button class="btn btn-default" data-bind="visible: status() !== statusInWork, click: toInWork">В
+                    работе</button>
+                <button class="btn btn-default" data-bind="visible: status() === statusInWork, click: toComplite">Закончено</button>
+            </div>
+        </div>
+        <div class="new" data-bind="visible: !taskEdit()"><button class="btn" data-bind="click: newTask">Новая
+                задача</button></div>
+    </main>
+    <footer></footer>
+
+    <script id="task" type="text/html">
+        <div class="task">
+            <label class="task-name" data-bind="text: name"></label>
+            <div class="task-details">
+                <div class="row">
+                    <label class="col-xs-6">Сумма</label>
+                    <label class="col-xs-4" data-bind="text: amount"></label>
+                    <div class="col-xs-1"><button class="btn btn-xs btn-default" data-bind="click: edit"><i class="fa fa-pencil" aria-hidden="true"></i></button></div>
+                </div>
+                <div class="row">
+                    <label class="col-xs-6">Порядок</label>
+                    <label class="col-xs-4" data-bind="text: order"></label>
+                    <div class="col-xs-1"><button class="btn btn-xs btn-default" data-bind="click: del"><i class="fa fa-trash-o" aria-hidden="true"></i></button></div>
+                </div>
+            </div>
+        </div>
+    </script>
+
+    <script src="./knockout/knockout-3.5.0.js"></script>
+    <script src="./data.js"></script>
+    <script src="./main.js"></script>
+</body>
+
+</html>

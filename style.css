@@ -1,0 +1,89 @@
+body {
+    padding: 10px;
+}
+
+.block-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    padding: 10px 0px;
+    border-bottom: 1px solid #000;
+    margin-bottom: 5px;
+}
+
+.task {
+    border: 1px solid black;
+    border-radius: 6px;
+    padding: 5px;
+}
+
+.task:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.blocks {
+    display: flex;
+    align-items: stretch;
+    margin-bottom: 30px;
+}
+
+.block {
+    width: 33%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.edit:not(:empty) {
+    border: 1px solid black;
+    border-radius: 6px;
+    width: 600px;
+}
+
+.edit-title {
+    border-bottom: 1px solid black;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 10px;
+}
+
+.edit-content {
+    padding: 15px;
+}
+
+.edit-content .row:not(:last-child) {
+    margin-bottom: 10px;
+}
+
+.btns {
+    padding: 10px;
+}
+
+.task-details:not(:hover) .btn {
+    display: none;
+}
+
+.task-details label {
+    padding-bottom: 2px;
+    padding-top: 2px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 20px;
+    background: #eee;
+    margin-bottom: 20px;
+}
+
+.tasks {
+    max-width: 300px;
+    margin: 0px auto 10px auto;
+}
+
+.block-sum {
+    padding: 5px;
+}
+
+.blocks {
+    border-bottom: 1px solid #000;
+}
