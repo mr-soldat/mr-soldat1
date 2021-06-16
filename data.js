@@ -4,8 +4,8 @@ const statusComplite = 2;
 const maxSumAmountInWork = 50000;
 
 const dataTasks = [
-    { name: 'Проект', amount: 7000, order: '1', status: statusTODO },
-    { name: 'Дизайн', amount: 6000, order: '2', status: statusInWork },
-    { name: 'Обмывка покупки', amount: 10000, order: '0', status: statusComplite },
-    { name: 'Закупка обоев', amount: 15000, order: '2', status: statusTODO },
+    { name: 'ВКР', amount: 31.12.21, order: '9', status: statusTODO },
+    { name: 'Анотомия1', amount: 01.08.21, order: '2', status: statusInWork },
+    { name: 'Вводная лекция', amount: 01.07.21, order: '0', status: statusComplite },
+    { name: 'Анатомия2', amount: 15.08.21, order: '3', status: statusTODO },
 ]
