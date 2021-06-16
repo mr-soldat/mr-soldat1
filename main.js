@@ -22,7 +22,6 @@ document.addEventListener("DOMContentLoaded", () => {
             taskList.closeEdit();
         };
     }
-
     const vm = function() {
         this.tasks = ko.observableArray([]);
         this.tasksTODO = ko.computed(() => this.tasks().filter(x => x.status() === statusTODO));
@@ -39,7 +38,6 @@ document.addEventListener("DOMContentLoaded", () => {
         this.closeEdit = () => { this.taskEdit(undefined); }
 
     };
-
     taskList = new vm();
     ko.applyBindings(taskList);
     taskList.tasks(dataTasks.map(x => new task(x)));
